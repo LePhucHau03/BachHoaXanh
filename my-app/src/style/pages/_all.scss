@@ -1,0 +1,124 @@
+
+@use "sass:map"; // cú pháp áp dụng scss
+@import "theme"; // gọi _theme.scss
+@import "responsive"; // gọi responsive.scss
+
+
+html,
+body{
+    margin: 0;
+}
+
+* {
+    font-family: Roboto;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    // các chỉ số cần để set 1 page vào giữa và có phân rõ 2 bên
+    max-width: 1170px;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: auto;
+    // lấy màu của _theme.scss
+    // background: map.get($theme-colors, "main"); // gọi key, tên của màu
+}
+
+.row {
+    // chỉ số cần để trang di chuyển khi kéo nhỏ trang
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-6 {
+    // chỉ số chia cột và kéo dài hết trang
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.col-lg-3 {
+    // chỉ số chia cột và kéo dài hết trang
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+.col-lg-6 {
+    // chỉ số chia cột và kéo dài hết trang
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.col-lg-9 {
+    // chỉ số chia cột và kéo dài hết trang
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+
+.button-submit {
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 16px 30px 17px;
+    background: map.get($theme-colors, "main");
+    border: none;
+    height: 100%;
+}
+
+ // cài đặt cấu hình khoảng cách cho thiết bị
+@include Responsive($DESKTOP) {
+    .col-xl-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+    .col-xl-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+ // cài đặt cấu hình khoảng cách cho thiết bị
+@include Responsive($TABLET_DEVICE) {
+    .col-md-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .col-md-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+ // cài đặt cấu hình khoảng cách cho thiết bị
+@include Responsive($MEDIUM_DEVICE) {
+    .col-lg-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+}
+
+ // cài đặt cấu hình khoảng cách cho thiết bị
+@include Responsive($WIDE_MOBILE) {
+    .col-sm-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .col-sm-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+ // cài đặt cấu hình khoảng cách cho thiết bị
+@include Responsive($SMALL_DEVICE) {
+    .col-xs-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
